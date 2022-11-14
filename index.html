@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Style/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER Y El NAV -->
+    <header>
+      <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+          <!-- Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item h3">
+              <a class="nav-link text-light" href="#">Conf Bs As</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">La conferencia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">Los Oradores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">El lugar y fecha</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Conviértete en orador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="#">Comprar tickets</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- COMIENZA EL MAIN Y ACA VAN LOS DESCUENTOS -->
+    <main class="container">
+      <div class="pt-5 row text-center d-flex justify-content-around">
+        <div class="col-3 border border-primary">
+          <p class="h3">Estudiante</p>
+          <br />
+          <p class="h4">Tienen un descuento</p>
+          <br />
+          <p class="h4">80%</p>
+          <br />
+          <p class="h6 text-secondary">*Presentar Documentacion</p>
+        </div>
+        <div class="col-3 border border-success">
+          <p class="h3">Trainee</p>
+          <br />
+          <p class="h4">Tienen un descuento</p>
+          <br />
+          <p class="h4">50%</p>
+          <br />
+          <p class="h6 text-secondary">*Presentar Documentacion</p>
+        </div>
+        <div class="col-3 border border-info">
+          <p class="h3">Junior</p>
+          <br />
+          <p class="h4">Tienen un descuento</p>
+          <br />
+          <p class="h4">15%</p>
+          <br />
+          <p class="h6 text-secondary">*Presentar Documentacion</p>
+        </div>
+      </div>
+
+      <!-- PARTE VENTA -->
+      <div class="text-center pt-3">
+        <p class>VENTA</p>
+      </div>
+      <!-- VALOR DEL TICKET -->
+      <div class="text-center pt-3">
+        <p class="h2" id="pPrecioActual"></p>
+      </div>
+      <!-- FORMULARIOS -->
+      <!-- FORM : NOMBRE Y APELLIDO -->
+      <form>
+        <div class="row container">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="inputNombre"/>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="APELLIDO"
+              name="apellido"
+            />
+          </div>
+        </div>
+      </form>
+      <!-- FORM : CORREO -->
+      <form class="pt-3">
+        <div class="row container">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Correo"
+              name="email"
+            />
+          </div>
+        </div>
+      </form>
+      <!-- FORM: CANTIDAD-CATEGORIA -->
+      <form class="pt-3">
+        <div class="row container">
+          <div class="col">
+            <p>Cantidad:</p>
+
+            <input
+              type="text"
+              class="form-control"
+              placeholder="cantidad"
+              name="cantidad"
+            />
+          </div>
+          <div class="col form-check">
+            <p >Categoria:</p>
+
+            <select id="selectSeniority" class="form-select" aria-label="Default select example" onchange="obtenerResultado();">
+              <option value="Estudiante">Estudiante</option>
+              <option value="Trainee">Trainee</option>
+              <option value="Junior">Junior</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <!-- P TOTAL A PAGAR -->
+      <div class="pt-3">
+        <div
+          class="container-fluid border border-primary fondoCeleste rounded-2"
+        >
+          <p id="pResultado" class="pt-3 fondoLetraCeleste">Debe seleccionar ESTUDIANTE-TRAINEE-JUNIOR</p>
+        </div>
+      </div>
+      <!-- BOTTOMS -->
+      <div class="d-flex pt-4 ">
+        <div class="container text-center">
+          <button type="button" class="btn btn-success col-6" id="btnBorrar">BORRAR</button>
+        </div>
+        <div class="container text-center">
+          <button type="button" class="btn btn-success col-6" id="btnResumen">RESUMEN</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- El footer -->
+        <footer
+          class=" container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+        >
+          <p class="col-md-2 mb-0 text-muted">&copy; 2022 Conf Bs As, Inc</p>
+
+          <a
+            href="/"
+            class="col-md-2 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+          >
+            <svg class="bi me-2" width="40" height="32">
+              <use xlink:href="#bootstrap" />
+            </svg>
+          </a>
+
+          <ul class="nav col-md-8 justify-content-end">
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Preguntas Frecuentes</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Contáctanos</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Prensa</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Conferencias</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Términos y Condiciones</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Privacidad</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link px-2 text-muted">Estudiantes</a>
+              </li>
+          </ul>
+        </footer>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
